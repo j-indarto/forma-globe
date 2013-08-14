@@ -28,7 +28,7 @@ var myres, newres;
 
 var loadForma = function() {
 
-  d3.csv("/assets/data/counts.csv", function(values) {
+  d3.csv("assets/data/counts.csv", function(values) {
 
     forma_data = values.filter(function(d) { 
       return parse(d.date) > parse(min_date) 

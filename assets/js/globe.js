@@ -39,7 +39,7 @@ svg.append("circle")
 var title = d3.select("#namer");
 
 // load and display the world
-d3.json("/assets/data/world_forma.json", function(error, topology) {
+d3.json("assets/data/world_forma.json", function(error, topology) {
   var countries = topojson.feature(topology, topology.objects.ne_110m_admin_0_countries_forma)
   world.selectAll("path")
     .data(countries.features)
