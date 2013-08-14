@@ -21,10 +21,10 @@ var aggForma = function(data) {
       result[data[i].date] = data[i].count;
     }
   }
-
   return result
+};
 
-}
+var myres, newres;
 
 var loadForma = function() {
 
@@ -44,7 +44,6 @@ var loadForma = function() {
 
     data = forma_data.filter(function(d) { return d.iso == "IDN"; });
     updateGraph(data);
-    
   })
 };
 
@@ -83,16 +82,14 @@ var createChartElements = function() {
   group.append("svg:path")
        .attr("class", "graph-line")
        .attr("clip-path", "url(#clip)");
-
-}
+};
 
 var filterData = function(iso) {
  data = forma_data.filter(function(d) {
    return d.iso == iso;
  });
-
  return data
-}
+};
 
 var updateGraph = function (data) {
 
@@ -118,7 +115,7 @@ var updateGraph = function (data) {
        t.select(".y.axis").call(yAxis);
        t.select(".x.axis").call(xAxis);
        t.select(".graph-line").attr("d", line(data));
-}
+};
 
 // load FORMA data
 forma_data = loadForma();

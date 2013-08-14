@@ -10,7 +10,6 @@ path {
 }
 
 .forma:active {
-  display: block;
   fill: black;
   fill-opacity: 0.8;
 }
