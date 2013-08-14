@@ -36,7 +36,6 @@ svg.append("circle")
     .attr("cy", height / 2)
     .attr("r", 299);
 
-
 var title = d3.select("#namer");
 
 // load and display the world
@@ -49,9 +48,9 @@ d3.json("/assets/data/world_forma.json", function(error, topology) {
     .attr("d", path)
     .attr("class", function(d) { if (d.properties.forma == 1) 
                                     {return "forma"} })
-    .on("mouseover", mouseOver)
+    .on("click", mouseOver)
     .on("mouseout", mouseOut)
-    });
+});
   
 function mousedown() {  // remember where the mouse was pressed, in canvas coords
   m0 = [d3.event.pageX, d3.event.pageY];
@@ -76,27 +75,28 @@ function mouseup() {
 }
 
 function mouseOver (d) {
-      var isForma = d.properties.forma
-      if (isForma == 1) {
-        displayData(d.properties.iso);
-        title.text(d.properties.admin);      
-        d3.selectAll("#" + GRAPH_SVG)
-          //.transition(100)
-          //.attr("fill", pickColor());
+  var isForma = d.properties.forma
+  if (isForma == 1) {
+    displayData(d.properties.iso);
+    title.text(d.properties.admin);      
+    d3.selectAll("#" + GRAPH_SVG)
+          .transition(100)
 
-        data = filterData(d.properties.iso);
-        updateGraph(data);
-        graph.attr("opacity", 1);
-      }
+    data = filterData(d.properties.iso);
+    updateGraph(data);
+    graph.attr("opacity", 1);
+  }
 
-      else {
-        title.text("Tropical forest clearing");
-        graph.attr("opacity", 0);
-      }
-    };
+  else {
+    title.text("Humid Tropics");
+    data = filterData("IDN");
+    updateGraph(data);
+    graph.attr("opacity", 1);
+  }
+};
 
 function mouseOut (d){
-      graph.attr("opacity", 0)
+      graph.attr("opacity", 1)
 
 }
 

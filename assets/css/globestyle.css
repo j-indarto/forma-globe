@@ -9,7 +9,8 @@ path {
   fill-opacity: 1;
 }
 
-.forma:hover {
+.forma:active {
+  display: block;
   fill: black;
   fill-opacity: 0.8;
 }
@@ -41,7 +42,7 @@ path.area {
 }
 
 .axis {
-  shape-rendering: crispEdges;
+  shape-rendering: crispEdge;
 }
 
 .x.axis line {

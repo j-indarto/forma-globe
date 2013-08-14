@@ -26,9 +26,6 @@ var aggForma = function(data) {
 
 }
 
-
-
-
 var loadForma = function() {
 
   d3.csv("/assets/data/counts.csv", function(values) {
@@ -45,11 +42,11 @@ var loadForma = function() {
       d.count = +d.count;
     });
 
-
+    data = forma_data.filter(function(d) { return d.iso == "IDN"; });
+    updateGraph(data);
+    
   })
 };
-
-
 
 // show iso and first date on page
 var displayData = function(iso) {
@@ -57,7 +54,6 @@ var displayData = function(iso) {
   country_vals = forma_data.filter(function(d) {
     return d.iso == iso
   })
-
 };
 
 // set up axes
