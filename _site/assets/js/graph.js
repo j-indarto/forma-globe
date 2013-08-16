@@ -26,6 +26,29 @@ var aggForma = function(data) {
 
 var myres, newres;
 
+var setarray = function(arr) {
+  console.log();
+  var res = [];
+  for (i=0; i<Object.keys(arr).length; i++) {
+      console.log(arr[i].date);
+    }
+  return arr
+}
+
+var sumdate = function(x) {
+  var result = {};
+  for(var i=0; i<x.length; i++) {
+    if(x[i].date in result) {  
+      result[x[i].date] += x[i].count;
+    }
+    else { 
+      result[x[i].date] = x[i].count;
+    }
+  }
+  return result
+}
+
+
 var loadForma = function() {
 
   d3.csv("assets/data/counts.csv", function(values) {

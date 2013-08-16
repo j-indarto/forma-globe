@@ -29,6 +29,7 @@ d3.select(window)
 var path = d3.geo.path()
   .projection(projection);
 
+var humid = svg.append("svg:g");
 var world = svg.append("svg:g");
 
 svg.append("circle")
@@ -37,6 +38,15 @@ svg.append("circle")
     .attr("r", 299);
 
 var title = d3.select("#namer");
+
+d3.json("assets/data/humidsimple.json", function(error, topology) {
+  humid.selectAll("path")
+    .data(topojson.feature(topology, topology.objects.humid).features)
+    .enter()
+    .insert("path")
+    .attr("d", path)
+    .style("fill", "black");
+});
 
 // load and display the world
 d3.json("assets/data/world_forma.json", function(error, topology) {
