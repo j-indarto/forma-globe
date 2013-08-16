@@ -71,7 +71,7 @@ function mousedown() {  // remember where the mouse was pressed, in canvas coord
 function mousemove() {
   if (m0) {  // if mousedown
     var m1 = [d3.event.pageX, d3.event.pageY],   
-    o1 = [o0[0] - (m0[0] - m1[0]) / 8, o0[1] - (m1[1] - m0[1]) / 8];
+    o1 = [o0[0] - (m0[0] - m1[0]) / 4, o0[1] - (m1[1] - m0[1]) / 4];
     projection.rotate(o1);
     svg.selectAll("path").attr("d", path); 
   }
