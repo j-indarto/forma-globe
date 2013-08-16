@@ -43,7 +43,7 @@ d3.json("assets/data/humidsimple.json", function(error, topology) {
   humid.selectAll("path")
     .data(topojson.feature(topology, topology.objects.humid).features)
     .enter()
-    .insert("path")
+    .append("path")
     .attr("d", path)
     .style("fill", "black");
 });
