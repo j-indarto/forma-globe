@@ -39,9 +39,9 @@ svg.append("circle")
 
 var title = d3.select("#namer");
 
-d3.json("assets/data/humidsimple.json", function(error, topology) {
+d3.json("assets/data/ecosimple.json", function(error, topology) {
   humid.selectAll("path")
-    .data(topojson.feature(topology, topology.objects.humid).features)
+    .data(topojson.feature(topology, topology.objects.ecoregions_biome).features)
     .enter()
     .append("path")
     .attr("d", path)
