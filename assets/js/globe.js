@@ -113,7 +113,7 @@ function mouseOut (d){
 function startAnimation() {
   d3.timer(function() {  
     var angle = velocity * (Date.now() - then);  
-    projection.rotate([angle, 0, 0]);  
+    projection.rotate([angle - 90, 0, 0]);  
     svg.selectAll("path")  
       .attr("d", path)}
 )};
