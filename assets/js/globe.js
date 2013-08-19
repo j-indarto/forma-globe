@@ -39,13 +39,13 @@ svg.append("circle")
 
 var title = d3.select("#namer");
 
-d3.json("assets/data/humidsimple.json", function(error, topology) {
+d3.json("assets/data/humidgeo.json", function(error, topology) {
   humid.selectAll("path")
-    .data(topojson.feature(topology, topology.objects.humid).features)
-    .enter()
-    .append("path")
-    .attr("d", path)
-    .style("fill", "black");
+  .data(topology.features)
+  .enter()
+  .append("path")
+  .attr("d", path)
+  .style("fill", "black");
 });
 
 // load and display the world
@@ -113,7 +113,7 @@ function mouseOut (d){
 function startAnimation() {
   d3.timer(function() {  
     var angle = velocity * (Date.now() - then);  
-    projection.rotate([angle, 0, 0]);  
+    projection.rotate([angle - 90, 0, 0]);  
     svg.selectAll("path")  
       .attr("d", path)}
 )};
